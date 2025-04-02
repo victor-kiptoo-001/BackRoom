@@ -1,20 +1,37 @@
 import React from 'react';
 import '../styles/Menu.css';
-import ProductCard from '../components/ProductCard';
+import { FaPlus } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
+import { popularItems, offerItems } from '../data/items';
 
 function Menu() {
-  const products = [
-    { name: 'Captain Morgan', price: 4000, image: '/assets/images/captain-morgan.png' },
-    { name: 'Jack Daniels', price: 4000, image: '/assets/images/jack-daniels.png' },
-    { name: 'Ugali Beef', price: 1200, image: '/assets/images/ugali-beef.png' },
-  ];
+  const { addToCart } = useCart();
+
+  const allItems = [...popularItems, ...offerItems];
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+  };
 
   return (
     <div className="menu">
-      <h2>Popular Items</h2>
-      <div className="product-list">
-        {products.map((product, index) => (
-          <ProductCard key={index} name={product.name} price={product.price} image={product.image} />
+      <h2>Our Menu</h2>
+      <div className="menu-items">
+        {allItems.map((item, index) => (
+          <div className="menu-item" key={index}>
+            <img src={item.image} alt={`${item.name} bottle`} />
+            <p>
+              {item.name} - <span className="price">Shs {item.price}</span>
+            </p>
+            <span className="availability">Available</span>
+            <button
+              className="add-to-cart"
+              aria-label={`Add ${item.name} to cart`}
+              onClick={() => handleAddToCart(item)}
+            >
+              <FaPlus />
+            </button>
+          </div>
         ))}
       </div>
     </div>

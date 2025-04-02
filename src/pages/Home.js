@@ -4,14 +4,22 @@ import '../styles/Home.css';
 import { FaShoppingCart, FaSearch, FaBars, FaGlassMartiniAlt, FaPlus } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
 import { popularItems, offerItems } from '../data/items';
-import { ToastContainer } from 'react-toastify'; // Import ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import default styles
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Home() {
   const { addToCart, getCartCount } = useCart();
 
   const handleAddToCart = (item) => {
     addToCart(item);
+  };
+
+  // Function to scroll to a section
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -54,6 +62,7 @@ function Home() {
             pauseOnHover
             theme="light"
             className="custom-toast-container"
+            limit={1} // Show only one notification at a time
           />
         </div>
         <h2>
@@ -61,9 +70,11 @@ function Home() {
         </h2>
         <div className="category-filters">
           <button className="active">All</button>
-          <button>Categories</button>
-          <button>Bar</button>
-          <button>Food</button>
+          <button onClick={() => scrollToSection('categories-section')}>
+            Categories
+          </button>
+          <button onClick={() => scrollToSection('bar-section')}>Bar</button>
+          <button onClick={() => scrollToSection('food-section')}>Food</button>
         </div>
         <div className="menu-search">
           <Link to="/menu" className="menu-btn">
@@ -119,6 +130,45 @@ function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Categories Section */}
+      <section id="categories-section" className="categories">
+        <h3>Categories</h3>
+        <p className="section-placeholder">
+          Explore our wide range of drinks and food items.
+        </p>
+      </section>
+
+      {/* Bar Section */}
+      <section id="bar-section" className="bar">
+        <h3>Bar</h3>
+        <div className="items-grid">
+          {[...popularItems, ...offerItems].map((item, index) => (
+            <div className="item" key={index}>
+              <img src={item.image} alt={`${item.name} bottle`} />
+              <p>
+                {item.name} - <span className="price">Shs {item.price}</span>
+              </p>
+              <span className="availability">Available</span>
+              <button
+                className="add-to-cart"
+                aria-label={`Add ${item.name} to cart`}
+                onClick={() => handleAddToCart(item)}
+              >
+                <FaPlus />
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Food Section */}
+      <section id="food-section" className="food">
+        <h3>Food</h3>
+        <p className="section-placeholder">
+          Coming soon! Stay tuned for our delicious food menu.
+        </p>
       </section>
     </div>
   );
