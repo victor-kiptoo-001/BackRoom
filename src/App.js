@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import './styles/App.css';
 import { CartProvider } from './context/CartContext';
 import Header from './components/Header';
-import Footer from './components/Footer'; // Import Footer
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Search from './pages/Search';
@@ -27,7 +27,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/receipt" element={<Receipt />} />
         </Routes>
-        <Footer /> {/* Add Footer here */}
+        <Footer />
       </div>
     </CartProvider>
   );
@@ -40,4 +40,3 @@ export default function AppWrapper() {
     </Router>
   );
 }
-

@@ -99,7 +99,7 @@
  }
  
  .menu-btn {
-  background: none;
+  background: #000000;
   border: none;
   color: #000000;
   cursor: pointer;
@@ -193,7 +193,7 @@
  }
  
  .menu-btn {
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  background: linear-gradient(135deg, #000000 0%,#000000 100%);
   color: #f0cd5c;
   padding: 0.75rem 1.875rem;
   border-radius: 1.5625rem;
@@ -862,5 +862,75 @@
 
   .add-to-cart svg {
     font-size: 0.75rem;
+  }
+}
+
+/* Notification Area */
+.notification-area {
+  position: relative;
+  width: 100%;
+  min-height: 2rem; /* Ensure there's space for notifications */
+  margin-bottom: 1rem;
+}
+
+.custom-toast-container {
+  position: relative !important; /* Override default absolute positioning */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.custom-toast-container .Toastify__toast {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 0.1875rem 0.625rem rgba(0, 0, 0, 0.1);
+  margin: 0.5rem auto;
+  max-width: 20rem;
+}
+
+.custom-toast-container .Toastify__toast--success {
+  background: #ffffff;
+  color: #000000;
+}
+
+.custom-toast-container .Toastify__toast--error {
+  background: #ff4d4f;
+  color: #ffffff;
+}
+
+.custom-toast-container .Toastify__progress-bar--success {
+  background: #f0cd5c;
+}
+
+.custom-toast-container .Toastify__progress-bar--error {
+  background: #d9363e;
+}
+
+.custom-toast-container .Toastify__close-button {
+  color: #000000;
+  opacity: 0.7;
+}
+
+.custom-toast-container .Toastify__close-button:hover {
+  opacity: 1;
+}
+
+/* Responsive Design for Notifications */
+@media (max-width: 768px) {
+  .custom-toast-container .Toastify__toast {
+    font-size: 0.75rem;
+    max-width: 15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-toast-container .Toastify__toast {
+    font-size: 0.625rem;
+    max-width: 12rem;
   }
 }

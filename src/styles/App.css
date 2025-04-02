@@ -16,3 +16,47 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
+
+/* Customize Toastify */
+.Toastify__toast {
+  border-radius: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 0.1875rem 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+.Toastify__toast--success {
+  background: #f0cd5c;
+  color: #000000;
+}
+
+.Toastify__toast--error {
+  background: #ff4d4f;
+  color: #ffffff;
+}
+
+.Toastify__progress-bar--success {
+  background: #e6b800; /* Darker yellow for progress bar */
+}
+
+.Toastify__progress-bar--error {
+  background: #d9363e; /* Darker red for progress bar */
+}
+
+.Toastify__close-button {
+  color: #000000;
+  opacity: 0.7;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+/* Responsive Design for Toasts */
+@media (max-width: 480px) {
+  .Toastify__toast {
+    font-size: 0.75rem;
+    margin: 0.5rem;
+  }
+}

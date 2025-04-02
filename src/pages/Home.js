@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 import { FaShoppingCart, FaSearch, FaBars, FaGlassMartiniAlt, FaPlus } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
-import { popularItems, offerItems } from '../data/items'; // Import items
+import { popularItems, offerItems } from '../data/items';
+import { ToastContainer } from 'react-toastify'; // Import ToastContainer
+import 'react-toastify/dist/ReactToastify.css'; // Import default styles
 
 function Home() {
   const { addToCart, getCartCount } = useCart();
@@ -39,6 +41,21 @@ function Home() {
 
       {/* Welcome Section */}
       <section className="welcome">
+        <div className="notification-area">
+          <ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            className="custom-toast-container"
+          />
+        </div>
         <h2>
           WELCOME <FaGlassMartiniAlt aria-hidden="true" />
         </h2>

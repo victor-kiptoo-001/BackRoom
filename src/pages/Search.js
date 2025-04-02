@@ -1,29 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Search.css';
-import ProductCard from '../components/ProductCard';
+import { FaSearch, FaPlus } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
+import { popularItems, offerItems } from '../data/items';
 
 function Search() {
-  const categories = ['All', 'Cocktails', 'Bar', 'Food'];
-  const products = [
-    { name: 'Red Label', price: 4000, image: '/assets/images/red-label.png' },
-    { name: 'Jack Daniels', price: 4000, image: '/assets/images/jack-daniels.png' },
-    { name: 'Ugali Beef', price: 1200, image: '/assets/images/ugali-beef.png' },
-  ];
+  const { addToCart } = useCart();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Combine all items for searching
+  const allItems = [...popularItems, ...offerItems];
+
+  // Filter items based on search term (name or category)
+  const filteredItems = allItems.filter((item) => {
+    const searchLower = searchTerm.toLowerCase();
+    const nameMatch = item.name.toLowerCase().includes(searchLower);
+    const categoryMatch = item.category
+      ? item.category.toLowerCase().includes(searchLower)
+      : false;
+    return nameMatch || categoryMatch;
+  });
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+  };
 
   return (
     <div className="search">
-      <div className="categories">
-        {categories.map((category, index) => (
-          <button key={index} className={index === 0 ? 'active' : ''}>
-            {category}
-          </button>
-        ))}
+      <h2>Search Items</h2>
+      <div className="search-bar">
+        <FaSearch className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search by name or category..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          aria-label="Search items"
+        />
       </div>
-      <h2>Frequently Searched</h2>
-      <div className="product-list">
-        {products.map((product, index) => (
-          <ProductCard key={index} name={product.name} price={product.price} image={product.image} />
-        ))}
+      <div className="search-results">
+        {filteredItems.length === 0 ? (
+          <p className="no-results">No items found.</p>
+        ) : (
+          filteredItems.map((item, index) => (
+            <div className="search-item" key={index}>
+              <img src={item.image} alt={`${item.name} bottle`} />
+              <p>
+                {item.name} - <span className="price">Shs {item.price}</span>
+              </p>
+              <span className="availability">Available</span>
+              <button
+                className="add-to-cart"
+                aria-label={`Add ${item.name} to cart`}
+                onClick={() => handleAddToCart(item)}
+              >
+                <FaPlus />
+              </button>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

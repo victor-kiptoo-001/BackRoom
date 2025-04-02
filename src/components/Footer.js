@@ -9,7 +9,7 @@ function Footer() {
         <div className="footer-quote">
           <FaQuoteLeft className="quote-icon" />
           <p>
-            "Welcome All"
+            "Exclusive Party House"
           </p>
         </div>
         <div className="footer-socials">
@@ -42,7 +42,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2025 The Backroom. All rights reserved.</p>
+          <p>&copy; 2025 The BACKROOM. All rights reserved.</p>
         </div>
       </div>
     </footer>
