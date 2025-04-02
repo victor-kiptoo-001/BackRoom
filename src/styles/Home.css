@@ -1,9 +1,8 @@
 .home {
-  padding: 2rem 1rem;
+  padding: 2rem 0; /* Remove left/right padding, keep top/bottom */
   background-color: #f5f5f5;
   min-height: 100vh;
- }
- 
+}
  /* Header Styles */
  .header {
   display: flex;
