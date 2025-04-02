@@ -1,0 +1,7 @@
+.App {
+  font-family: 'Poppins', sans-serif;
+  max-width: 390px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}

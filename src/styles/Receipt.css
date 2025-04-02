@@ -1,0 +1,32 @@
+.receipt {
+    padding: 20px;
+  }
+  .receipt h2 {
+    font-size: 18px;
+  }
+  .receipt-list {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+  }
+  .receipt-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .receipt-item p {
+    font-size: 14px;
+  }
+  .receipt-summary {
+    margin-top: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .receipt-summary p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
