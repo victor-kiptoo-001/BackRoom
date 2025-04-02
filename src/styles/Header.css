@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 1rem 1.5rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -13,31 +13,37 @@
 .header-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .back-btn {
   background: none;
   border: none;
-  color: #333333;
+  color: #000000;
   cursor: pointer;
-  font-size: 24px;
-  transition: color 0.3s ease;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.back-btn:hover {
-  color: #036c80;
+.back-btn:hover,
+.back-btn:focus {
+  color: #f0cd5c;
+  transform: scale(1.1);
+}
+
+.back-btn:active {
+  transform: scale(1);
 }
 
 .header-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   object-fit: contain;
 }
 
@@ -47,43 +53,48 @@
 }
 
 .title-line1 {
-  font-family: 'Dancing Script', cursive; /* Fallback for Mistral */
-  font-size: 14px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.875rem;
   font-weight: 700;
-  color: #333333;
+  color: #000000;
   line-height: 1;
 }
 
 .title-line2 {
   font-family: 'Oswald', sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #333333;
+  color: #000000;
   line-height: 1;
 }
 
 .title-line3 {
   font-family: 'Kaushan Script', cursive;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #666666;
   line-height: 1;
 }
 
 .header-icons {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
   align-items: center;
 }
 
 .icon {
-  font-size: 24px;
-  color: #333333;
+  font-size: 1.5rem;
+  color: #000000;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.icon:hover {
-  color: #036c80;
+.icon:hover,
+.icon:focus {
+  color: #f0cd5c;
   transform: scale(1.1);
+}
+
+.icon:active {
+  transform: scale(1);
 }
 
 .cart-wrapper {
@@ -92,12 +103,75 @@
 
 .cart-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -0.5rem;
+  right: -0.5rem;
   background-color: #ff4d4f;
   color: white;
   border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
+  padding: 0.125rem 0.375rem;
+  font-size: 0.75rem;
   font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .back-btn {
+    font-size: 1.25rem;
+  }
+
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .title-line1 {
+    font-size: 0.75rem;
+  }
+
+  .title-line2 {
+    font-size: 1.25rem;
+  }
+
+  .title-line3 {
+    font-size: 0.625rem;
+  }
+
+  .icon {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .back-btn {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .title-line1 {
+    font-size: 0.625rem;
+  }
+
+  .title-line2 {
+    font-size: 1rem;
+  }
+
+  .title-line3 {
+    font-size: 0.5rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+  }
 }

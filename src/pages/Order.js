@@ -1,32 +1,63 @@
 import React from 'react';
-import '../styles/Order.css';
-import OrderItem from '../components/OrderItem';
 import { Link } from 'react-router-dom';
+import '../styles/Order.css';
+import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
 
 function Order() {
-  const items = [
-    { name: 'Captain Morgan', price: 3200, quantity: 1, image: '/assets/images/captain-morgan.png' },
-    { name: 'Jack Daniels', price: 4000, image: '/assets/images/jack-daniels.png' },
-  ];
+  const { cart, removeFromCart, updateQuantity } = useCart();
+
+  // Calculate total price
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <div className="order">
-      <h2>My Order</h2>
-      <div className="order-list">
-        {items.map((item, index) => (
-          <OrderItem key={index} name={item.name} price={item.price} quantity={item.quantity} image={item.image} />
-        ))}
-      </div>
-      <button className="add-more">+ Add more items</button>
-      <div className="order-summary">
-        <p>Sub Total: Kshs 7200</p>
-        <p>VAT 5%: Kshs 360</p>
-        <p>Services: Kshs 310</p>
-        <p><strong>Total: Kshs 8830</strong></p>
-        <Link to="/checkout">
-          <button>Checkout</button>
-        </Link>
-      </div>
+      <h2>Your Cart</h2>
+      {cart.length === 0 ? (
+        <p className="empty-cart">Your cart is empty.</p>
+      ) : (
+        <>
+          <div className="cart-items">
+            {cart.map((item, index) => (
+              <div className="cart-item" key={index}>
+                <img src={item.image} alt={item.name} />
+                <div className="cart-item-details">
+                  <p className="cart-item-name">{item.name}</p>
+                  <p className="cart-item-price">Shs {item.price}</p>
+                  <div className="quantity-controls">
+                    <button
+                      onClick={() => updateQuantity(item.name, -1)}
+                      aria-label={`Decrease quantity of ${item.name}`}
+                    >
+                      <FaMinus />
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(item.name, 1)}
+                      aria-label={`Increase quantity of ${item.name}`}
+                    >
+                      <FaPlus />
+                    </button>
+                  </div>
+                </div>
+                <button
+                  className="delete-btn"
+                  onClick={() => removeFromCart(item.name)}
+                  aria-label={`Remove ${item.name} from cart`}
+                >
+                  <FaTrash />
+                </button>
+              </div>
+            ))}
+          </div>
+          <div className="cart-summary">
+            <p>Total: Shs {totalPrice}</p>
+            <Link to="/checkout" className="checkout-btn">
+              Proceed to Checkout
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 }
