@@ -66,7 +66,7 @@ function Home() {
           </div>
           <div className="offer-item">
             <img src="/assets/images/captain-morgan.png" alt="Captain Morgan" />
-            <p>Captain Morgan - <span className="price">Shs 4000</span></p>
+            <p>Captain Morgan  <span className="price">Shs 4000</span></p>
             <span className="availability">Available</span>
           </div>
         </div>
