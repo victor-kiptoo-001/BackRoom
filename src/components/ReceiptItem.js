@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/ReceiptItem.css';
 
 function ReceiptItem({ name, price, quantity }) {
   return (

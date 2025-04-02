@@ -1,52 +1,67 @@
 .order {
-    padding: 20px;
-  }
-  .order h2 {
-    font-size: 18px;
-  }
-  .order-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  .order-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  .order-item img {
-    width: 50px;
-    height: 50px;
-  }
-  .order-item h4 {
-    font-size: 16px;
-  }
-  .order-item p {
-    font-size: 14px;
-    color: #666;
-  }
-  .order-summary {
-    margin-top: 20px;
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  .order-summary p {
-    font-size: 14px;
-    margin: 5px 0;
-  }
-  .order-summary button {
-    background-color: #036c80;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    margin-top: 10px;
-  }
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.order h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.add-more {
+  background-color: transparent;
+  color: #036c80;
+  border: 1px solid #036c80;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin: 15px 0;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-more:hover {
+  background-color: #e6f0fa;
+}
+
+.order-summary {
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary p {
+  font-size: 14px;
+  color: #666666;
+  margin: 5px 0;
+}
+
+.order-summary p strong {
+  color: #333333;
+}
+
+.order-summary button {
+  background-color: #036c80;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.order-summary button:hover {
+  background-color: #024c5a;
+}

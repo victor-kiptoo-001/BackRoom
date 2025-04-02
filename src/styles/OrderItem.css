@@ -1,0 +1,64 @@
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .order-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .order-info {
+    flex: 1;
+  }
+  
+  .order-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #333333;
+  }
+  
+  .order-info p {
+    font-size: 14px;
+    color: #666666;
+    margin: 5px 0 0;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .quantity-controls button {
+    background-color: #036c80;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .quantity-controls button:hover {
+    background-color: #024c5a;
+  }
+  
+  .quantity-controls span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+  }

@@ -1,19 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/CheckoutForm.css';
 
 function CheckoutForm() {
   return (
     <form className="checkout-form">
       <h3>Customer Information</h3>
       <input type="text" placeholder="Name" />
-      <input type="email" placeholder="Email" />
-      <input type="tel" placeholder="Phone" />
+      <input type="tel" placeholder="254..." />
+      <input type="text" placeholder="Table No." />
       <h3>Payment</h3>
       <select>
-        <option>M-Pesa</option>
+        <option>Pay</option>
         <option>Cash</option>
-        <option>Card</option>
+        <option>M-Pesa</option>
+        <option>Tigo Pesa</option>
+        <option>MTN</option>
       </select>
-      <button type="submit">Confirm Order</button>
+      <Link to="/receipt">
+        <button type="submit">Confirm Order</button>
+      </Link>
     </form>
   );
 }
