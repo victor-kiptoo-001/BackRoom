@@ -1,0 +1,187 @@
+.login-page {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .login-container {
+    background: linear-gradient(145deg, #ffffff 0%, #f9f9f9 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 25rem;
+    width: 100%;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  /* Underline effect using the splash image */
+  .login-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: var(--splash-image) center bottom / cover no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  
+  .login-container h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+  }
+  
+  .error {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    color: #ff4d4f;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0
+    .75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #f0cd5c;
+    box-shadow: 0 0 0.3125rem rgba(240, 205, 92, 0.3);
+    outline: none;
+  }
+  
+  .form-group input::placeholder {
+    color: #999999;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #f0cd5c;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .submit-btn:hover,
+  .submit-btn:focus {
+    background-color: #e6b800;
+    transform: scale(1.02);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .submit-btn:active {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  
+  .toggle-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    color: #666666;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: #f0cd5c;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .toggle-btn:hover,
+  .toggle-btn:focus {
+    color: #e6b800;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 1.5rem;
+    }
+  
+    .login-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .form-group input {
+      font-size: 0.875rem;
+      padding: 0.625rem;
+    }
+  
+    .submit-btn {
+      font-size: 0.875rem;
+      padding: 0.625rem;
+    }
+  
+    .toggle-text {
+      font-size: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 1rem;
+    }
+  
+    .login-container h2 {
+      font-size: 1.25rem;
+    }
+  
+    .form-group input {
+      font-size: 0.75rem;
+      padding: 0.5rem;
+    }
+  
+    .submit-btn {
+      font-size: 0.75rem;
+      padding: 0.5rem;
+    }
+  
+    .toggle-text {
+      font-size: 0.625rem;
+    }
+  }
