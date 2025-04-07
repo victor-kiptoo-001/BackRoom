@@ -2,9 +2,11 @@ import React from 'react';
 import '../styles/Receipt.css';
 import ReceiptItem from '../components/ReceiptItem';
 import { QRCodeCanvas } from 'qrcode.react';
+import { useCart } from '../context/CartContext';
 
-function Receipt({ cartItems = [] }) {
-  // Generate random receipt number
+function Receipt() {
+  const { purchasedItems } = useCart();
+
   const generateReceiptNumber = () => {
     const prefix = 'IPORDR';
     const randomNum = Math.floor(100 + Math.random() * 900);
@@ -14,13 +16,11 @@ function Receipt({ cartItems = [] }) {
 
   const receiptNumber = generateReceiptNumber();
 
-  // Calculate totals from cart items
-  const subTotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subTotal = purchasedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const vat = subTotal * 0.05;
   const serviceFee = 310;
   const total = subTotal + vat + serviceFee;
 
-  // QR code data
   const qrData = `Receipt: ${receiptNumber}\nTotal: Kshs ${total}`;
 
   return (
@@ -32,14 +32,18 @@ function Receipt({ cartItems = [] }) {
       <div className="receipt-details">
         <h3>Receipt</h3>
         <div className="receipt-items">
-          {cartItems.map((item, index) => (
-            <ReceiptItem
-              key={index}
-              name={item.name}
-              price={item.price}
-              quantity={item.quantity}
-            />
-          ))}
+          {purchasedItems.length > 0 ? (
+            purchasedItems.map((item, index) => (
+              <ReceiptItem
+                key={index}
+                name={item.name}
+                price={item.price}
+                quantity={item.quantity}
+              />
+            ))
+          ) : (
+            <p>No items purchased.</p>
+          )}
         </div>
         <div className="receipt-summary">
           <p>Sub Total: Kshs {subTotal.toLocaleString()}</p>
