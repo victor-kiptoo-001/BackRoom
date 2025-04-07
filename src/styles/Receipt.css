@@ -1,3 +1,4 @@
+/* Receipt.css */
 .receipt {
   padding: 20px;
   background-color: #f5f5f5;
@@ -68,6 +69,14 @@
 
 .receipt-footer p {
   margin: 5px 0;
+}
+
+.qr-code {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 .order-number {
